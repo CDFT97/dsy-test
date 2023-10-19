@@ -30,6 +30,9 @@ Route::get('/', function () {
 
 Route::middleware('auth')->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['verified'])->name('dashboard');
+    Route::get('/get-price-by-month', [DashboardController::class, 'index']);
+    Route::post('/get-price-by-month', [DashboardController::class, 'getPriceByMonth'])->name('sbif.get-price-by-month');
+    Route::post('/export-to-csv', [DashboardController::class, 'exportToCsv'])->name('sbif.export-to-csv');
     Route::get('/about', fn () => Inertia::render('About'))->name('about');
 
     Route::get('users', [UserController::class, 'index'])->name('users.index');
