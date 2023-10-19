@@ -228,6 +228,7 @@ const exportToCsv = async () => {
     link.click();
     document.body.removeChild(link);
     URL.revokeObjectURL(href);
+    alerts.success("Done!")
   } catch (error) {
     console.log(error);
   }
