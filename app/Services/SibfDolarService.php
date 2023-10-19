@@ -10,15 +10,15 @@ use Illuminate\Support\Facades\Log;
  */
 class SibfDolarService
 {
-    public function getPriceByMonth()
+    public function getPriceByMonth(string $year, string $month)
     {
-            $api_key = config("services.sbif.api.key");
+            $api_key = config("services.sbif_api.key");
             $response = Http::get("https://api.sbif.cl/api-sbifv3/recursos_api/dolar/{$year}/{$month}?apikey={$api_key}&formato=json");
             if($response->successful()) {
-                $rsp_object = $response->object();
+                return $response->object()->Dolares;
             } else {
                 Log::error($response->body());
-                return "An error occurred with the request";
+                return "[]";
             }
        
     }

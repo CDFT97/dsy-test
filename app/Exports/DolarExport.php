@@ -3,7 +3,6 @@
 namespace App\Exports;
 
 use Maatwebsite\Excel\Concerns\FromCollection;
-
 use Maatwebsite\Excel\Concerns\WithHeadings;
 class DolarExport implements FromCollection, WithHeadings
 {
@@ -20,8 +19,8 @@ class DolarExport implements FromCollection, WithHeadings
     public function headings(): array
     {
         return [
-            'Date',
             'Value',
+            'Date',
         ];
     }
 }
